@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Max Chadwick | {{ page.title }}</title>
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+      <!--[if IE]>
+      <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css">
+      <link href="http://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet" type="text/css">
+      <link href="http://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet" type="text/css">
+      <![endif]-->
+      <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+      <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+      <script src="{{ site.url }}/js/respond.min.js"></script>
+      <script src="{{ site.url }}/js/modernizr.min.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" type="image/png" href="{{ site.url }}/img/favicon-2.png" />
+  </head>
+  
+  <body>
+    
+    <div class="top-bar"></div>
+    
+    <div class="logo-area">
+      <div class="main-inner"> 
+        
+        <div class="logo-area-left">
+          <a href="{{ site.url }}">
+            <img src="{{ site.url }}/img/logo.svg" alt="" />
+          </a>
+        </div>
+
+        <div class="logo-area-right">
+          <ul>
+            <li><a href="https://github.com/mpchadwick" target="_blank"><i class="icon-github"></i> Follow me on GitHub</a></li>
+            <li><a href="http://www.linkedin.com/in/mpchadwick/" target="_blank"><i class="icon-linkedin"></i> Connect with me on LinkedIn</a></li>
+            <li><a href="{{ site.url }}/img/maxchadwick-resume.pdf" target="_blank"><i class="icon-file-text"></i> Download my R&#233;sume</a></li>
+          </ul>
+        </div>
+
+        <div class="clear"></div>
+
+      </div>
+    </div>
+    
+    <div class="menu-bar">
+      <div class="main-inner">
+        <ul>
+          <li class="center"><a href="#" id="nav-toggle" class="button display-table center margin-bottom-zero">Menu</a></li>
+          <li><a href="{{ site.url }}" class="button nav-link display-table center display-none-link">Home</a></li>
+          <li><a href="{{ site.url }}/about" class="button nav-link display-table center display-none-link">About</a></li>
+          <li><a href="{{ site.url }}/work" class="button nav-link display-table center display-none-link">Work</a></li>
+          <li><a href="{{ site.url }}/contact" class="button nav-link display-table center display-none-link">Contact</a></li>
+        </ul>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <!-- eof: Header -->
+
+    {{ content }}
+
+    <div class="brown-pattern-border"></div>
+
+    <div class="footer">
+      <div class="main-inner">
+        This site was built by <a href="http://github.com/mpchadwick" target="_blank">Max Chadwick</a>, generated with <a href="https://github.com/mojombo/jekyll" target="_blank">Jekyll</a>, and is proudly hosted on <a href="http://pages.github.com/" target="_blank">GitHub Pages</a>
+      </div>
+    </div>
+   
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{{ site.url }}/js/main.js"></script>
+  </body>
+</html>

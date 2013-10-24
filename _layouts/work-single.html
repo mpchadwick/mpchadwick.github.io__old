@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<div class="main-inner work-single">
+	<h1 class="text-align-center padding-bottom-eighteen">Work</h1>
+	
+	<!-- bof: Skills List Container -->
+	<div class="skills-list-container">
+		
+		<ul class="text-align-center">
+			<li class="font-weight-700">Project:</li>
+			<li>{{ page.title }}</li>
+		</ul>
+		
+		<ul class="skills-list">
+			<li class="font-weight-700">Skills Utilized:</li>
+			{% for skill in page.skills %}
+				<li>{{ skill }}</li>
+			{% endfor %}
+		</ul>
+
+		{% if page.cta %}
+		<div>
+			<a href="{{ page.cta-url }}" target="_blank" class="button margin-auto margin-bottom-one-em display-table">{{ page.cta }}</a>
+		</div>
+		{% endif %}
+
+	</div>
+	<!-- eof: Skills List Container -->
+
+	<!-- bof: Work Single Description -->
+	<div class="work-single-description">
+
+		{{ content }}
+
+	</div>
+	<!-- eof: Work Single Description -->
+	<div class="clear"></div>
+</div>

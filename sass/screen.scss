@@ -1,0 +1,486 @@
+/*----------------------------------------*\
+ *
+ * MAIN CSS FILES FOR MPCHADWICK.GITHUB.IO
+ * Author: Max Chadwick
+ *
+\*----------------------------------------*/
+
+/*----------------------------------------*\
+	VARIABLES
+\*----------------------------------------*/
+$body-bg-color: #d6d6d6;
+$brown: #815a33;
+$brown-border: #5a3b1c;
+$gray: #757575;
+$beige: #dbcab7;
+$code-editor-bg: #272822;
+
+/*----------------------------------------*\
+	MIXINS
+\*----------------------------------------*/
+@import "compass/css3/border-radius";
+@import "compass/css3";
+
+/*----------------------------------------*\
+	RESET
+\*----------------------------------------*/
+@import "compass/reset";
+
+/*----------------------------------------*\
+	GLOBAL STYLES
+\*----------------------------------------*/
+body {
+	background: $body-bg-color;
+	* {
+		font-family: 'Open Sans', sans-serif;
+		@include box-sizing(border-box); 
+		color: $gray;
+	}
+}
+
+/*----------------------------------------*\
+	CLASSES
+\*----------------------------------------*/
+button, .button {
+	@include border-radius(7px);
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	text-decoration: none;
+	background: $brown;
+	font-weight: 700;
+	font-size: 14px;
+	color: white;
+	&:hover {
+		background: darken($brown, 10%);
+	}
+}
+.clear {
+	clear: both;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.text-align-center {
+	text-align: center;
+}
+.margin-auto {
+	margin: 0 auto;
+}
+.inline-block {
+	display: inline-block;
+}
+.wh-auto {
+	width: 100%;
+	height: auto;
+}
+.display-table {
+	display: table;
+}
+.display-none-link {
+	display: none;
+	@media all and (min-width: 800px) {
+		display: table;
+	}
+}
+.beige-area {
+	background: $beige;
+}
+.brown-pattern-border {
+	background: url('../img/menu-bar-pattern.jpg');
+	height: 10px;
+	width: 100%;
+}
+.padding-bottom-one-em {
+	padding-bottom: 1em;
+}
+.padding-bottom-eighteen {
+	padding-bottom: 18px;
+}
+.margin-bottom-zero {
+	margin-bottom: 0px;
+}
+.margin-bottom-one-em {
+	margin-bottom: 1em;
+}
+.big-img {
+	width: 100%;
+	border: 10px solid $brown-border;
+}
+.big-img.link {
+	&:hover {
+		border: 10px solid darken($brown-border, 5%);
+	}
+}
+/*------------------------------------*\
+    TYPE
+\*------------------------------------*/
+h1 {
+	font-size: 60px;
+	font-weight: 800;
+	padding-bottom: 18px;
+}
+h2 {
+	margin-top: .5em;
+	font-size: 36px;
+}
+h3 {
+	font-size: 24px;
+	margin-top: .5em;
+	margin-bottom: .5em;
+	font-weight: 700;
+}
+pre {
+	font-family: courier;
+}
+.white-text {
+	color: white;
+}
+b, .font-weight-700 {
+	font-weight: 700;
+}
+.font-weight-800 {
+	font-weight: 800;
+}
+.italic {
+	font-style: italic;
+}
+.blue-code {
+	color: #66d9ef;
+}
+.red-code {
+	color: #f52749;
+}
+.yellow-code {
+	color: #e6db74;
+}
+.caption {
+	font-size: .9em;
+	font-style: italic;
+	margin-bottom: 1em;
+	color: lighten($gray, 10%);
+}
+.fixed {
+	position: fixed;
+}
+/*----------------------------------------*\
+	STRUCTURE
+\*----------------------------------------*/
+.top-bar {
+	height: 17px;
+	background: url('../img/top-bar.jpg');
+	width: 100%;
+}
+.logo-nav {
+	margin-top: 10px;
+	height: 112px;
+}
+.logo-area {
+	.logo-area-right {
+		display: none;
+	}
+	@media all and (min-width: 800px) {
+		.logo-area-left {
+			float: left;
+			width: 66%;
+		}
+		.logo-area-right {
+			float: left;
+			display: block;
+			width: 34%;
+			padding-top: .5em;
+			ul li {
+				padding-bottom: .5em;
+				a {
+					text-decoration: none;
+					&:hover {
+						text-decoration: underline;
+					}
+					i {
+						font-size: 1.25em;
+					}
+				}
+			}
+		}
+	}
+}
+.menu-bar {
+	background: url('../img/menu-bar-pattern.jpg');
+	padding-top: .5em;
+	padding-bottom: .5em;
+}
+.work-single, .work-index, .about, .contact {
+	padding-top: 1em;
+}
+.main-inner {
+	max-width: 600px;
+	width: 90%;
+	margin: 0 auto;
+	@media all and (min-width: 800px) {
+		max-width: 960px;
+	}
+}
+.footer {
+	background: $code-editor-bg;
+	color: white;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	text-align: center;
+	line-height: 1.5em;
+	* {
+		color: white;
+	}
+	a {
+		&:hover {
+			background: darken($code-editor-bg, 2%);
+		}
+	}
+}
+/*----------------------------------------*\
+	LAYOUT
+\*----------------------------------------*/
+.menu-bar ul li a {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1em;
+	&#nav-toggle {
+		margin-bottom: 0px;
+	}
+	@media all and (min-width: 800px) {
+		float: left;
+		margin-right: 20px;
+		margin-bottom: 0px;
+		&#nav-toggle {
+			display: none;
+		}
+	}
+}
+.home-main {
+	.beige-area {
+		padding-top: 1em;
+		p {
+			font-size: 24px;
+			color: $gray;
+			line-height: 36px;
+		}
+	}
+	.hero-copy {
+		p {
+			margin-bottom: 1em;
+		}
+		@media all and (min-width: 800px) {
+			float: left;
+			margin-left: 5%;
+			width: 35%;
+		}
+	}
+	.hero {
+		@media all and (min-width: 800px) {
+			float: left;
+			width: 60%;
+		}
+		width: 100%;
+		border: 10px solid $brown-border;
+		background: $code-editor-bg;
+		display: table;
+		.hero-row {
+			display: table-row;
+			.hero-left, .hero-right {
+				display: table-cell;
+			}
+			.hero-left {
+				width: 40%;
+				img {
+					width: 100%;
+				}
+			}
+			.hero-right {
+				width: 60%;
+				vertical-align: middle;
+				pre {
+					visibility: hidden;
+					font-size: 10px;
+					color: white;
+					span {
+						font-family: courier;
+					}
+				}
+			}
+		}
+	}
+	.featured-work-container {
+		.featured-work-item {
+			.button {
+				text-align: center;
+				margin: 0 auto;
+			}
+			p {
+				font-size: 14px;
+				line-height: 21px;
+				margin-bottom: 1em;	
+			}
+			margin-bottom: 1em;
+			@media all and (min-width: 800px) {
+				width: 45%;
+				float: left;
+				&:first-child {
+					margin-right: 10%;
+				}
+			}
+		}
+	}
+}
+.skills-list-container {
+	ul {
+		text-align: center;
+		li {
+			margin-bottom: .5em;
+			&:last-child {
+				margin-bottom: 1.5em;
+			}
+		}
+		@media all and (min-width: 800px) {
+			text-align: left;
+			li {
+				margin-bottom: 1em;
+			}
+		}
+	}
+}
+.work-single {
+	p, ol {
+		margin-bottom: 1em;
+		line-height: 1.5em;
+	}
+	ol {
+		list-style: decimal;
+		margin-left: 40px;
+		li {
+			margin-bottom: 1em;
+		}
+	}
+	.work-single-description {
+		a {
+			&:hover {
+				background: darken($body-bg-color, 10%);
+			}
+		}
+	}
+	img {
+		border: 10px solid $brown-border;
+		margin-bottom: 1em;
+	}
+	@media all and (min-width: 800px) {
+		.skills-list-container {
+			float: right;
+			width: 25%;
+		}
+		.work-single-description {
+			float: left;
+			width: 70%;
+			margin-bottom: 3em;
+		}
+	}
+}
+.work-index {
+	div {
+		margin-bottom: 2em;
+		p {
+			font-size: 14px;
+			margin-bottom: 1em;
+			line-height: 21px;
+		}
+		.button {
+			margin: 0 auto;
+		}
+	}
+	@media all and (min-width: 800px) {
+		div {
+			width: 47%;
+		}
+		div.even {
+			float: left;
+			margin-right: 6%;
+		}
+		div.odd {
+			float: right;
+		}
+	}
+}
+.about {
+	div {
+		margin-bottom: 2em;
+	}
+	p {
+		font-size: 14px;
+		margin-bottom: 1em;
+		line-height: 21px;
+	}
+	a {
+		&:hover {
+			background: darken($body-bg-color, 10%);
+		}
+	}
+	img {
+		margin-bottom: 1em;
+	}
+	.about-side {
+		display: none;
+	}
+	@media all and (min-width: 800px) {
+		.about-side {
+			display: block;
+			float: right;
+			width: 25%;
+			position: relative;
+			#about-side-inner {
+				width: 100%;
+				.slider-wrapper {
+					float: left;
+					width: 20%;
+				}
+				.label-wrapper {
+					float: left;
+					width: 80%;
+				}	
+			}
+		}
+		.about-main {
+			float: left;
+			width: 70%;
+			margin-bottom: 3em;
+		}
+	}
+}
+.contact {
+	p {
+		margin-bottom: 1em;
+		line-height: 1.5em;
+		&:last-child {
+			font-size: 24px;
+		}
+	}
+	a {
+		&:hover {
+			background: darken($body-bg-color, 10%);
+		}
+	}
+	#contact-form {
+		margin-bottom: 3em;
+	}
+	@media all and (min-width: 800px) {
+		#contact-copy {
+			float: left;
+			width: 45%;
+			margin-right: 5%;
+		}
+		#contact-form {
+			float: right;
+			width: 45%;
+		}
+	}
+}
