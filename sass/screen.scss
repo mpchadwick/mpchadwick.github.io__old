@@ -52,6 +52,8 @@ button, .button {
 	font-weight: 700;
 	font-size: 14px;
 	color: white;
+	@include transition-property(background-color);
+	@include transition-duration(0.5s);
 	&:hover {
 		background: darken($brown, 10%);
 	}
@@ -235,6 +237,8 @@ b, .font-weight-700 {
 		color: white;
 	}
 	a {
+		@include transition-property(background-color);
+		@include transition-duration(0.5s);
 		&:hover {
 			background: darken($code-editor-bg, 2%);
 		}
@@ -365,6 +369,8 @@ b, .font-weight-700 {
 	}
 	.work-single-description {
 		a {
+			@include transition-property(background-color);
+			@include transition-duration(0.5s);
 			&:hover {
 				background: darken($body-bg-color, 10%);
 			}
@@ -421,8 +427,10 @@ b, .font-weight-700 {
 		line-height: 21px;
 	}
 	a {
+		@include transition-property(background-color);
+		@include transition-duration(0.5s);
 		&:hover {
-			background: darken($body-bg-color, 10%);
+			background-color: darken($body-bg-color, 10%);
 		}
 	}
 	img {
@@ -465,6 +473,8 @@ b, .font-weight-700 {
 		}
 	}
 	a {
+		@include transition-property(background-color);
+		@include transition-duration(0.5s);
 		&:hover {
 			background: darken($body-bg-color, 10%);
 		}
