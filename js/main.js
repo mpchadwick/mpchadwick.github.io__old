@@ -40,4 +40,11 @@ $(document).ready(function() {
 		}
 	})
 
+	/**
+	 * Replace SVG with JPG if necessary
+	 */
+	 if(!Modernizr.svg) {
+	 	$('#logo').attr('src', '/img/logo.jpg')
+	 }
+
 })
