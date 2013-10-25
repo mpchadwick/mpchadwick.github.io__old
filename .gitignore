@@ -1,1 +1,3 @@
 _site
+.sash-cache
+node_modules
