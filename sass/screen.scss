@@ -93,7 +93,7 @@ button, .button {
 	background: $beige;
 }
 .brown-pattern-border {
-	background: url('../img/menu-bar-pattern.jpg');
+	background: url('../img/dist/menu-bar-pattern.jpg');
 	height: 10px;
 	width: 100%;
 }
@@ -174,7 +174,7 @@ b, .font-weight-700 {
 \*----------------------------------------*/
 .top-bar {
 	height: 17px;
-	background: url('../img/top-bar.jpg');
+	background: url('../img/dist/top-bar.jpg');
 	width: 100%;
 }
 .logo-nav {
@@ -211,7 +211,7 @@ b, .font-weight-700 {
 	}
 }
 .menu-bar {
-	background: url('../img/menu-bar-pattern.jpg');
+	background: url('../img/dist/menu-bar-pattern.jpg');
 	padding-top: .5em;
 	padding-bottom: .5em;
 }

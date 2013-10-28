@@ -30,9 +30,20 @@ module.exports = function(grunt) {
           environment: 'production'
         }
       }
+    },
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'img/dist/',
+          src: ['*.{png,jpg}'],
+          dest: 'img/dist/dist/'
+        }]
+      }
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
