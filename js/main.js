@@ -39,7 +39,6 @@ $(document).ready(function() {
 			$(this).css('margin-bottom', '1em');
 		}
 	})
-
 	/**
 	 * Replace SVG with JPG if necessary
 	 */
