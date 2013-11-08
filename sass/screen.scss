@@ -331,10 +331,12 @@ b, .font-weight-700 {
 			@media all and (min-width: 800px) {
 				width: 45%;
 				float: left;
-				&:first-child {
-					margin-right: 10%;
-				}
 			}
+		}
+	}
+	@media all and (min-width: 800px) {
+		#first-featured-work-item {
+			margin-right: 10%;
 		}
 	}
 }
