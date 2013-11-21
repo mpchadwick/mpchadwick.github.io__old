@@ -14,6 +14,7 @@ $brown-border: #5a3b1c;
 $gray: #757575;
 $beige: #dbcab7;
 $code-editor-bg: #272822;
+$orange: #d95f27;
 
 /*----------------------------------------*\
 	MIXINS
@@ -416,6 +417,37 @@ b, .font-weight-700 {
 		}
 		div.odd {
 			float: right;
+		}
+	}
+	ul.paginator {
+		text-align: center;
+		li {
+			margin-right: 50px;
+			display: inline;
+			&:last-child {
+				margin-right: 0px;
+			}
+			a {
+				color: white;
+				text-decoration: none;
+				padding-left: 20px;
+				padding-right: 20px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				background: $orange;
+				@include transition-property(background-color);
+				@include transition-duration(0.5s);
+				&:hover {
+					background: darken($orange, 10%);
+				}
+			}
+			a.inactive {
+				background: gray;
+				&:hover {
+					cursor: default;
+					background: gray;
+				}
+			}
 		}
 	}
 }
