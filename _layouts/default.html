@@ -3,7 +3,7 @@
   
   <head>
     <meta charset="UTF-8">
-    <title>Max Chadwick | {{ page.title }}</title>
+    <title>{% if page.noNameInTitle != true %} Max Chadwick | {% endif %}{{ page.title }}</title>
       <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
       <!--[if IE]>
       <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css">
@@ -17,6 +17,10 @@
       <link href="{{ site.url }}/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
       <script src="{{ site.url }}/js/respond.min.js"></script>
       <script src="{{ site.url }}/js/modernizr.min.js"></script>
+      <script src="{{site.url}}/js/picturefill.js"></script>
+      <link rel="stylesheet" href="{{site.url}}/stylesheets/tomorrow-night-eighties.css">
+      <script src="http://yandex.st/highlightjs/7.5/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="icon" type="image/png" href="{{ site.url }}/img/dist/favicon-2.png" />
   </head>
@@ -55,6 +59,7 @@
           <li><a href="{{ site.url }}/about" class="button nav-link display-table center display-none-link">About</a></li>
           <li><a href="{{ site.url }}/work" class="button nav-link display-table center display-none-link">Work</a></li>
           <li><a href="{{ site.url }}/contact" class="button nav-link display-table center display-none-link">Contact</a></li>
+          <li><a href="{{ site.url }}/blog" class="button nav-link display-table center display-none-link">Blog</a></li>
         </ul>
         <div class="clear"></div>
       </div>

@@ -2,3 +2,4 @@ name: Max Chadwick
 markdown: redcarpet
 pygments: true
 url: http://localhost:4000
+permalink: /blog/:title
