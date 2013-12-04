@@ -27,11 +27,11 @@ noNameInTitle: true
 <p>The beauty of this solution is that it can easily be integrated into a site that has been using the YouTube iFrame embed code from the get go. The developer or content manager will not need to make any changes other than including his gplus-youtubeembed.js script in the head of the file, and then call the <code>optimizeYouTubeEmbed()</code> function in the footer after all the iframes have been added to the DOM. As Arun explains, you don’t have to worry about the iframe being downloaded because...</p>
 <blockquote>Javascript is synchronosly loaded by browsers. That means once your web page content is loaded by a browser, the included javascript files and inline javascript are first fetched and executed. Once all javascripts are done, the DOM is fully done and the browser loads additional content like iframes, images etc. That means if we call a javascript function right before the ending <code>&lt;/body&gt;</code> tag, it will run before the browser gets a chance to load any iframes.</blockquote>
 <h3>A jQuery Solution</h3>
-<p>TJ Wallas published <a class="inline-link" href="https://github.com/TjWallas/YouTube-Lite-Embed" target="_blank">some jQuery code</a> to GitHub in 2011 that solves the problem</p>
-<p>Rather than including the iframe embed code, developers use a div with class &#39;lite&#39; and an &#39;id&#39; equal to the YouTube video ID. The div also needs a style attribute with the width and height need to be set the dimensions of the iframe player.</p>
+<p>TJ Wallas published <a class="inline-link" href="https://github.com/TjWallas/YouTube-Lite-Embed" target="_blank">some jQuery code</a> to GitHub in 2011 that solves the problem.</p>
+<p>Rather than including the iframe embed code, developers use a div with class &#39;lite&#39; and an &#39;id&#39; equal to the YouTube video ID.
 <pre class="html"><code class="language-html">&lt;div class="lite" id="9bZkp7q19f0"&gt;&lt;/div&gt;</code></pre>
 <p>The plugin essentially searches the DOM for those divs and uses their IDs to pull the image thumbnail from the YouTube thumbnail URL string.  A &#39;click&#39; event handler is bound to those divs and replaces the image with the embedded video.</p>
-<p>It is worth noting that this plugin depends on jquery.lazyload.js and doesn’t expose any configuration options to the developer</p>
+<p>It is worth noting that this plugin depends on jquery.lazyload.js and doesn’t expose any configuration options to the developer. It also requires a style attribute be set with width and height equal to the dimensions of the embedded iFrame</p>
 <h3>A WordPress Plugin</h3>
 <p>Frank Gossen has developed <a class="inline-link" href="http://wordpress.org/plugins/wp-youtube-lyte/" target="_blank">a WordPress plugin</a> specifically to solve this problem.</p>
 <p>While I have not implemented it in a WordPress environment, this seems like a great solution for WordPress blogs where YouTube videos are embedded. Simply install the plugin and follow the instructions to add the link to the YouTube video and the plugin takes care of the rest. The fact that, at the time of writing this, the plugin has over 150K downloads should be a good indicator of how many people are looking to solve this problem.</p>
@@ -58,11 +58,18 @@ object, embed, iframe {
 <p>Read through Theirry’s article which goes into more depth here...</p>
 <p><a class="inline-link" href="http://alistapart.com/article/creating-intrinsic-ratios-for-video" target="_blank">http://alistapart.com/article/creating-intrinsic-ratios-for-video</a></p>
 <h3>jQuery.nonSuckyYouTubeEmbed.js</h3>
-<p>jQuery.nonSuckyYouTubeEmbed.js is a jQuery plugin I developed that addresses the issue. As mentioned, it was developed specially for use in responsive websites. Similar to Wallas&#39; solution it works by extracting the video&#39;s ID from the ID attribute of the elements it is called on, but is different in that elements do not need to be given a certain class for it to work.</p>
-<p>View a demo of the plugin live in action here...</p>
-<p><a class="inline-link" href="http://mpchadwick.github.io/jquery.nonSuckyYouTubeEmbed/" target="_blank">http://mpchadwick.github.io/jquery.nonSuckyYouTubeEmbed/</a></p>
-<p>And browse through the source code and readme here...</p>
-<p><a class="inline-link" href="https://github.com/mpchadwick/jquery.nonSuckyYouTubeEmbed" target="_blank">https://github.com/mpchadwick/jquery.nonSuckyYouTubeEmbed</a></p>
+<p>jQuery.nonSuckyYouTubeEmbed.js is a jQuery plugin I developed to address this issue. Similar to Wallas&#39; solution it works by extracting the video&#39;s ID from the ID attribute of the elements it is called on. However, to increase flexibility, the plugin exposes a number of options that the implementor can customize, and is also automatically wrapped in a <code>&lt;div&gt;</code> with all the necessary styles applied to make the videos responsive. Let&#39;s look at an example of a page that needs to embed two YouTube videos. Those videos could be represented as follows...</p>
+<pre><code>&lt;div id="CqZgd6-xQl8" class="nonSuckyYouTubeEmbed"&gt;&lt;/div&gt;
+&lt;div id="9bZkp7q19f0" class="nonSuckyYouTubeEmbed"&gt;&lt;/div&gt;
+</code></pre>
+<p>Then, the plugin could be called as follows...</p>
+<pre><code>$('.nonSuckyYouTubeEmbed').nonSuckyYouTubeEmbed({
+	playBtnSrc: 'my-play-btn.png',
+	playBtnStyle: 'width: 50px; height: 50px; position: absolute; left: 50%; top: 50%; margin-left: -25px; margin-top: -25px'
+});
+</code></pre>
+<p>The above code would result in two YouTube thumbnails being loaded, with a custom play button centered and laid over each, and an onclick event to swap in the YouTube iFrame.</p>
+<p>View a demo of the plugin live in action <a class="inline-link" href="http://mpchadwick.github.io/jquery.nonSuckyYouTubeEmbed/" target="_blank">here</a> and browse through the source code and readme <a class="inline-link" href="https://github.com/mpchadwick/jquery.nonSuckyYouTubeEmbed" target="_blank">here.</a></p>
 <h3>An AngularJS Directive</h3>
 <p>I originally stumbled upon this issue working on an AngularJS app that was loading 10 YouTube iFrames up-front. If you happen to be working on an <code>ng-app</code> with embedded YouTube videos, I really like the idea of creating a <code>&lt;non-sucky-youtube-embed&gt;</code> directive with all this behavior encapsulated</p>
 <pre><code>&lt;non-sucky-youtube-embed id="CqZgd6-xQl" height="360" width="480"&gt;&lt;non-sucky-youtube-embed&gt;</code></pre>
@@ -72,7 +79,7 @@ object, embed, iframe {
 <p>While all the solutions outlined above will solve this problem, just fine, in all honesty, in my mind, there&#39;s clearly a better way.</p>
 <p>YouTube offers a number of parameters which can be set when embedding the iFrame player. For example, setting <code>autoplay=1</code> will make the video automatically play on load.</p>
 <pre><code>&lt;iframe src="http://www.youtube.com/embed/m9D3hKHS9K0?autoplay=1"&gt;&lt;/iframe&gt;</code></pre>
-<p>In my opinion, YouTube should provide a parameter which can be set in the embed URL string to handle all this</p>
+<p>In my opinion, YouTube should provide a parameter which can be set in the embed URL string to handle all this, such as <code>preview=thumbnail</code></p>
 <pre><code>&lt;iframe src="http://www.youtube.com/embed/m9D3hKHS9K0?preview=thumbnail"&gt;&lt;/iframe&gt;</code></pre>
 <p>Maybe it&#39;s wishful thinking, but I think this would be a plus for all parties involved.</p>
 <ol>
