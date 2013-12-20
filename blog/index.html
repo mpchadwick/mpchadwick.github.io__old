@@ -8,9 +8,11 @@ title: Blog
 	<div class="blog-main">
 
 		{% for post in site.posts %}
-		<h2 class="font-weight-700 inline-link"><a href="{{post.url}}">{{post.title}}</a></h2>
-		<p>{{post.excerpt}}</p>
-		<a href="{{post.url}}" class="button display-table center">Read more</a>
+		<div class="blog-excerpt margin-bottom-three-em">
+			<h2 class="font-weight-700 inline-link"><a href="{{post.url}}">{{post.title}}</a></h2>
+			<p>{{post.excerpt}}</p>
+			<a href="{{post.url}}" class="button display-table center">Read more</a>
+		</div>
 		{% endfor %}
 
 	</div>
