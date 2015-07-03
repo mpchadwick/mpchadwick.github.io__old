@@ -13,6 +13,8 @@ ogImageHeight: 1024
 <p>Using YouTube to integrate video into your website is suspiciously easy. Just use YouTube&#39;s iframe embed code and voila, you now have shiny video player on your web page.</p>
 <pre><code class="html">&lt;iframe width="640" height="360" src="//www.youtube.com/embed/9bZkp7q19f0"  frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
 <p>However, there&#39;s a lot of suck that comes with embedding YouTube videos that way. &quot;How much suck?&quot; you might ask. Well, each YouTube video you embed will force your user to download roughly 400K of data, before they even click play.</p>
+<!-- excerpt_separator -->
+
 <span class="picture" data-picture data-alt="Screenshot of Chrome Dev Tools showing a page loading a single YouTube embed">
 	<span data-src="{{site.url}}/img/blog/1/4.png"></span>
 	<span data-src="{{site.url}}/img/blog/1/5.png" data-media="(max-width: 340px)"></span>
@@ -21,7 +23,6 @@ ogImageHeight: 1024
 <p class="caption">Screenshot of Chrome Dev Tools showing a page with a single iframe YouTube embed element</p>
 <p>This issue has come up time and time again. There have been <a href="http://stackoverflow.com/questions/7594960/better-page-load-performance-when-loading-multiple-embedded-youtube-videos" target="_blank" class="inline-link">Stack Overflow Threads</a> about it, <a href="http://www.labnol.org/internet/light-youtube-embeds/27941/" target="_blank" class="inline-link">blog posts</a>, <a href="https://github.com/TjWallas/YouTube-Lite-Embed" target="_blank" class="inline-link">jQuery plugins</a>, and even <a href="http://wordpress.org/plugins/wp-youtube-lyte/" target="_blank" class="inline-link">a WordPress plugin</a> developed specifically to solve this problem. The purpose of this blog post is to do a quick round up of some of the solutions proposed to date, and then share some code I&#39;ve developed to solve this problem.</p>
 <p>My code focuses specifically on solving the issue in a RWD environment, something that isn&#39;t baked in to any other solutions I&#39;ve seen.</p>
-<!-- excerpt_separator -->
 
 <h3>How Do We Solve The Problem From A Broad Sense</h3>
 <p>The most logical solution to this problem from an abstract perspective is, rather than load the embedded video, first load a thumbnail image of the video with a play button laid over, and possibly other elements to mimic the YouTube player chrome. Then, swap in the iframe embed code only once the thumbnail has been clicked and the user has confirmed interest in watching the video.</p>
